@@ -135,171 +135,17 @@
     
     <h3>2.1 用户分享与分佣业务流</h3>
     <div class="diagram">
-        <svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <marker id="arrowhead1" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
-                </marker>
-            </defs>
-            
-            <!-- 用户A 分享专属二维码 -->
-            <rect x="50" y="30" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="125" y="53" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">用户A 分享专属二维码</text>
-            
-            <!-- 新用户B 扫描注册 -->
-            <rect x="300" y="30" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="375" y="53" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">新用户B 扫描注册</text>
-            
-            <!-- 新用户B 支付开通会员 -->
-            <rect x="50" y="120" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="125" y="143" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">新用户B 支付开通会员</text>
-            
-            <!-- 支付成功 -->
-            <rect x="50" y="210" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="125" y="233" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">支付成功</text>
-            
-            <!-- 系统实时计算佣金 -->
-            <rect x="50" y="300" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="125" y="323" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">系统实时计算佣金</text>
-            
-            <!-- 佣金打入A的'可提现余额'(一级分佣) -->
-            <rect x="50" y="390" width="150" height="60" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="125" y="410" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">佣金打入A的'可提现余额'</text>
-            <text x="125" y="430" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">（一级分佣）</text>
-            
-            <!-- 用户B 分享二维码 -->
-            <rect x="550" y="120" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="625" y="143" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">用户B 分享二维码</text>
-            
-            <!-- 新用户C 扫描注册并消费 -->
-            <rect x="550" y="210" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="625" y="233" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">新用户C 扫描注册并消费</text>
-            
-            <!-- 佣金打入B的余额(一级分佣) -->
-            <rect x="300" y="300" width="150" height="60" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="375" y="320" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">佣金打入B的余额</text>
-            <text x="375" y="340" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">（一级分佣）</text>
-            
-            <!-- 佣金打入A的余额(二级分佣) -->
-            <rect x="550" y="300" width="150" height="60" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="625" y="320" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">佣金打入A的余额</text>
-            <text x="625" y="340" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">（二级分佣）</text>
-            
-            <!-- 箭头连接线 -->
-            <line x1="200" y1="50" x2="300" y2="50" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
-            <line x1="300" y1="70" x2="200" y2="120" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
-            <line x1="125" y1="160" x2="125" y2="210" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
-            <line x1="125" y1="250" x2="125" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
-            <line x1="125" y1="340" x2="125" y2="390" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
-            <line x1="450" y1="50" x2="550" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
-            <line x1="625" y1="160" x2="625" y2="210" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
-            <line x1="550" y1="230" x2="450" y2="320" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
-            <line x1="625" y1="250" x2="625" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
-        </svg>
+        <img src="用户分享与分佣业务流.svg" alt="用户分享与分佣业务流" style="width: 100%; max-width: 800px; height: auto;">
     </div>
 
     <h3>2.2 票务购买与分佣业务流</h3>
     <div class="diagram">
-        <svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
-                </marker>
-            </defs>
-            
-            <!-- 用户分享演唱会链接 -->
-            <rect x="50" y="30" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="125" y="53" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">用户分享演唱会链接</text>
-            
-            <!-- 新用户点击购票 -->
-            <rect x="250" y="30" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="325" y="53" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">新用户点击购票</text>
-            
-            <!-- 选择票档及数量 -->
-            <rect x="450" y="30" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="525" y="53" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">选择票档及数量</text>
-            
-            <!-- 实名认证 -->
-            <rect x="450" y="120" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="525" y="143" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">实名认证</text>
-            
-            <!-- 支付票款 -->
-            <rect x="250" y="120" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="325" y="143" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">支付票款</text>
-            
-            <!-- 生成电子票 -->
-            <rect x="50" y="210" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="125" y="233" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">生成电子票</text>
-            
-            <!-- 系统计算分佣佣金 -->
-            <rect x="450" y="210" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="525" y="233" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">系统计算分佣佣金</text>
-            
-            <!-- 佣金打入分享者账户 -->
-            <rect x="250" y="300" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="325" y="323" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">佣金打入分享者账户</text>
-            
-            <!-- 箭头连接线 -->
-            <line x1="200" y1="50" x2="250" y2="50" stroke="#333" stroke-width="2" marker-end="url(#arrowhead2)"/>
-            <line x1="400" y1="50" x2="450" y2="50" stroke="#333" stroke-width="2" marker-end="url(#arrowhead2)"/>
-            <line x1="525" y1="70" x2="525" y2="120" stroke="#333" stroke-width="2" marker-end="url(#arrowhead2)"/>
-            <line x1="450" y1="140" x2="400" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrowhead2)"/>
-            <line x1="250" y1="140" x2="200" y2="230" stroke="#333" stroke-width="2" marker-end="url(#arrowhead2)"/>
-            <line x1="400" y1="140" x2="450" y2="230" stroke="#333" stroke-width="2" marker-end="url(#arrowhead2)"/>
-            <line x1="525" y1="250" x2="400" y2="320" stroke="#333" stroke-width="2" marker-end="url(#arrowhead2)"/>
-        </svg>
+        <img src="票务购买与分佣流.svg" alt="票务购买与分佣业务流" style="width: 100%; max-width: 800px; height: auto;">
     </div>
 
     <h3>2.3 商家/推广员业务流</h3>
     <div class="diagram">
-        <svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <marker id="arrowhead3" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
-                </marker>
-            </defs>
-            
-            <!-- 推广员推广商家会员 -->
-            <rect x="50" y="30" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="125" y="53" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">推广员推广商家会员</text>
-            
-            <!-- 商家付费开通会员 -->
-            <rect x="300" y="30" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="375" y="53" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">商家付费开通会员</text>
-            
-            <!-- 推广员获得佣金 -->
-            <rect x="50" y="120" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="125" y="143" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">推广员获得佣金</text>
-            
-            <!-- 商家发布产品/服务 -->
-            <rect x="550" y="120" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="625" y="143" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">商家发布产品/服务</text>
-            
-            <!-- 用户消费商家产品 -->
-            <rect x="550" y="210" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="625" y="233" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">用户消费商家产品</text>
-            
-            <!-- 商家获得营收 -->
-            <rect x="550" y="300" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="625" y="323" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">商家获得营收</text>
-            
-            <!-- 推广30家商家达标 -->
-            <rect x="300" y="210" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="375" y="233" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">推广30家商家达标</text>
-            
-            <!-- 获得月度底薪 -->
-            <rect x="300" y="300" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
-            <text x="375" y="323" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">获得月度底薪</text>
-            
-            <!-- 箭头连接线 -->
-            <line x1="200" y1="50" x2="300" y2="50" stroke="#333" stroke-width="2" marker-end="url(#arrowhead3)"/>
-            <line x1="300" y1="70" x2="200" y2="120" stroke="#333" stroke-width="2" marker-end="url(#arrowhead3)"/>
-            <line x1="450" y1="50" x2="550" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrowhead3)"/>
-            <line x1="625" y1="160" x2="625" y2="210" stroke="#333" stroke-width="2" marker-end="url(#arrowhead3)"/>
-            <line x1="625" y1="250" x2="625" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead3)"/>
-            <line x1="200" y1="50" x2="300" y2="230" stroke="#333" stroke-width="2" marker-end="url(#arrowhead3)"/>
-            <line x1="375" y1="250" x2="375" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead3)"/>
-        </svg>
+        <img src="商家推广员业务流.svg" alt="商家/推广员业务流" style="width: 100%; max-width: 800px; height: auto;">
     </div>
 
     <h2>3. 功能需求详述</h2>
