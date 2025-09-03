@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星际娱乐小程序PRD - V2.0</title>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 1.5em;
+        }
+        h1 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin-top: 2em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .priority-p0 {
+            background-color: #ffe6e6;
+        }
+        .priority-p1 {
+            background-color: #fff9e6;
+        }
+        .priority-p2 {
+            background-color: #e6ffe6;
+        }
+        .diagram {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .version-info {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="version-info">
+        <h1>星际娱乐小程序产品需求文档 (PRD) - V2.0</h1>
+        <p><strong>文档版本:</strong> V2.0</p>
+        <p><strong>最后更新日期:</strong> 2025-09-03</p>
+        <p><strong>撰写人:</strong> 产品经理（基于讨论会议记录梳理）</p>
+        <p><strong>文档状态:</strong> ✅ 已整合 | ☑️ 待评审</p>
+    </div>
+
+    <h2>1. 文档概述</h2>
+    <h3>1.1 产品简介</h3>
+    <p>星际娱乐是一款创新性的"娱乐+社交+电商"平台，核心通过<strong>付费会员体系</strong>与<strong>多级分佣机制</strong>，连接娱乐产业上下游资源（艺人、企业、粉丝、商家），打造一个集人才孵化、内容展示、资源对接、票务服务、消费变现于一体的闭环生态。</p>
+
+    <h3>1.2 产品目标</h3>
+    <ul>
+        <li><strong>短期:</strong> 快速获客，通过分享经济机制驱动用户增长，完成核心功能建设，重点验证票务与会员分佣模式。</li>
+        <li><strong>中期:</strong> 提升平台活跃度，沉淀优质内容与专业用户（商家、导演、艺人），拓展B端合作伙伴，验证各VIP服务的商业化价值。</li>
+        <li><strong>长期:</strong> 成为娱乐产业的基础设施与流量入口，重塑行业资源分配方式。</li>
+    </ul>
+
+    <h3>1.3 用户画像</h3>
+    <table>
+        <tr>
+            <th>用户角色</th>
+            <th>核心诉求</th>
+            <th>主要使用功能</th>
+        </tr>
+        <tr>
+            <td><strong>潜力艺人</strong> (歌手、演员)</td>
+            <td>获得曝光、演出机会、成名</td>
+            <td>好声音/演员报名、开通歌手/演员VIP、发布动态、查看通告</td>
+        </tr>
+        <tr>
+            <td><strong>内容创作者</strong> (编剧、导演)</td>
+            <td>展示作品、对接资金与资源</td>
+            <td>开通对应VIP、上传剧本/项目、招募演员、社区互动</td>
+        </tr>
+        <tr>
+            <td><strong>企业/商家</strong></td>
+            <td>品牌曝光、获取客户、线下引流</td>
+            <td>开通企业/商家VIP、发布项目、投放广告、成为报名点</td>
+        </tr>
+        <tr>
+            <td><strong>娱乐粉丝</strong></td>
+            <td>支持偶像、消费娱乐内容、获取优惠</td>
+            <td>投票、购票、观看直播、购买会员、消费商品</td>
+        </tr>
+        <tr>
+            <td><strong>推广员</strong></td>
+            <td>赚取推广佣金</td>
+            <td>推广商家会员、分享票务链接</td>
+        </tr>
+        <tr>
+            <td><strong>战略合作伙伴</strong> (娱乐公司/主办方)</td>
+            <td>销售票务、举办活动、招募艺人</td>
+            <td>独立后台、发布并管理自有活动、审核报名、结算票务</td>
+        </tr>
+    </table>
+
+    <h2>2. 整体业务流程</h2>
+    
+    <h3>2.1 用户分享与分佣业务流</h3>
+    <div class="diagram">
+        <svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrowhead1" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+                </marker>
+            </defs>
+            
+            <!-- 用户A 分享专属二维码 -->
+            <rect x="50" y="30" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="125" y="53" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">用户A 分享专属二维码</text>
+            
+            <!-- 新用户B 扫描注册 -->
+            <rect x="300" y="30" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="375" y="53" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">新用户B 扫描注册</text>
+            
+            <!-- 新用户B 支付开通会员 -->
+            <rect x="50" y="120" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="125" y="143" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">新用户B 支付开通会员</text>
+            
+            <!-- 支付成功 -->
+            <rect x="50" y="210" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="125" y="233" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">支付成功</text>
+            
+            <!-- 系统实时计算佣金 -->
+            <rect x="50" y="300" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="125" y="323" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">系统实时计算佣金</text>
+            
+            <!-- 佣金打入A的'可提现余额'(一级分佣) -->
+            <rect x="50" y="390" width="150" height="60" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="125" y="410" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">佣金打入A的'可提现余额'</text>
+            <text x="125" y="430" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">（一级分佣）</text>
+            
+            <!-- 用户B 分享二维码 -->
+            <rect x="550" y="120" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="625" y="143" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">用户B 分享二维码</text>
+            
+            <!-- 新用户C 扫描注册并消费 -->
+            <rect x="550" y="210" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="625" y="233" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">新用户C 扫描注册并消费</text>
+            
+            <!-- 佣金打入B的余额(一级分佣) -->
+            <rect x="300" y="300" width="150" height="60" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="375" y="320" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">佣金打入B的余额</text>
+            <text x="375" y="340" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">（一级分佣）</text>
+            
+            <!-- 佣金打入A的余额(二级分佣) -->
+            <rect x="550" y="300" width="150" height="60" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="625" y="320" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">佣金打入A的余额</text>
+            <text x="625" y="340" text-anchor="middle" font-family="Arial" font-size="11" fill="#333">（二级分佣）</text>
+            
+            <!-- 箭头连接线 -->
+            <line x1="200" y1="50" x2="300" y2="50" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
+            <line x1="300" y1="70" x2="200" y2="120" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
+            <line x1="125" y1="160" x2="125" y2="210" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
+            <line x1="125" y1="250" x2="125" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
+            <line x1="125" y1="340" x2="125" y2="390" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
+            <line x1="450" y1="50" x2="550" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
+            <line x1="625" y1="160" x2="625" y2="210" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
+            <line x1="550" y1="230" x2="450" y2="320" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
+            <line x1="625" y1="250" x2="625" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead1)"/>
+        </svg>
+    </div>
+
+    <h3>2.2 票务购买与分佣业务流</h3>
+    <div class="diagram">
+        <svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+                </marker>
+            </defs>
+            
+            <!-- 用户分享演唱会链接 -->
+            <rect x="50" y="30" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="125" y="53" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">用户分享演唱会链接</text>
+            
+            <!-- 新用户点击购票 -->
+            <rect x="250" y="30" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="325" y="53" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">新用户点击购票</text>
+            
+            <!-- 选择票档及数量 -->
+            <rect x="450" y="30" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="525" y="53" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">选择票档及数量</text>
+            
+            <!-- 实名认证 -->
+            <rect x="450" y="120" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="525" y="143" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">实名认证</text>
+            
+            <!-- 支付票款 -->
+            <rect x="250" y="120" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="325" y="143" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">支付票款</text>
+            
+            <!-- 生成电子票 -->
+            <rect x="50" y="210" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="125" y="233" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">生成电子票</text>
+            
+            <!-- 系统计算分佣佣金 -->
+            <rect x="450" y="210" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="525" y="233" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">系统计算分佣佣金</text>
+            
+            <!-- 佣金打入分享者账户 -->
+            <rect x="250" y="300" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="325" y="323" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">佣金打入分享者账户</text>
+            
+            <!-- 箭头连接线 -->
+            <line x1="200" y1="50" x2="250" y2="50" stroke="#333" stroke-width="2" marker-end="url(#arrowhead2)"/>
+            <line x1="400" y1="50" x2="450" y2="50" stroke="#333" stroke-width="2" marker-end="url(#arrowhead2)"/>
+            <line x1="525" y1="70" x2="525" y2="120" stroke="#333" stroke-width="2" marker-end="url(#arrowhead2)"/>
+            <line x1="450" y1="140" x2="400" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrowhead2)"/>
+            <line x1="250" y1="140" x2="200" y2="230" stroke="#333" stroke-width="2" marker-end="url(#arrowhead2)"/>
+            <line x1="400" y1="140" x2="450" y2="230" stroke="#333" stroke-width="2" marker-end="url(#arrowhead2)"/>
+            <line x1="525" y1="250" x2="400" y2="320" stroke="#333" stroke-width="2" marker-end="url(#arrowhead2)"/>
+        </svg>
+    </div>
+
+    <h3>2.3 商家/推广员业务流</h3>
+    <div class="diagram">
+        <svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrowhead3" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+                </marker>
+            </defs>
+            
+            <!-- 推广员推广商家会员 -->
+            <rect x="50" y="30" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="125" y="53" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">推广员推广商家会员</text>
+            
+            <!-- 商家付费开通会员 -->
+            <rect x="300" y="30" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="375" y="53" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">商家付费开通会员</text>
+            
+            <!-- 推广员获得佣金 -->
+            <rect x="50" y="120" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="125" y="143" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">推广员获得佣金</text>
+            
+            <!-- 商家发布产品/服务 -->
+            <rect x="550" y="120" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="625" y="143" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">商家发布产品/服务</text>
+            
+            <!-- 用户消费商家产品 -->
+            <rect x="550" y="210" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="625" y="233" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">用户消费商家产品</text>
+            
+            <!-- 商家获得营收 -->
+            <rect x="550" y="300" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="625" y="323" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">商家获得营收</text>
+            
+            <!-- 推广30家商家达标 -->
+            <rect x="300" y="210" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="375" y="233" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">推广30家商家达标</text>
+            
+            <!-- 获得月度底薪 -->
+            <rect x="300" y="300" width="150" height="40" rx="5" fill="#ECECFF" stroke="#9370DB" stroke-width="1"/>
+            <text x="375" y="323" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">获得月度底薪</text>
+            
+            <!-- 箭头连接线 -->
+            <line x1="200" y1="50" x2="300" y2="50" stroke="#333" stroke-width="2" marker-end="url(#arrowhead3)"/>
+            <line x1="300" y1="70" x2="200" y2="120" stroke="#333" stroke-width="2" marker-end="url(#arrowhead3)"/>
+            <line x1="450" y1="50" x2="550" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrowhead3)"/>
+            <line x1="625" y1="160" x2="625" y2="210" stroke="#333" stroke-width="2" marker-end="url(#arrowhead3)"/>
+            <line x1="625" y1="250" x2="625" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead3)"/>
+            <line x1="200" y1="50" x2="300" y2="230" stroke="#333" stroke-width="2" marker-end="url(#arrowhead3)"/>
+            <line x1="375" y1="250" x2="375" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead3)"/>
+        </svg>
+    </div>
+
+    <h2>3. 功能需求详述</h2>
+
+    <h3>3.1 小程序端功能</h3>
+
+    <h4>3.1.1 首页</h4>
+    <table>
+        <tr>
+            <th>子功能模块</th>
+            <th>优先级</th>
+            <th>详细需求说明</th>
+        </tr>
+        <tr class="priority-p0">
+            <td>轮播图</td>
+            <td>P0</td>
+            <td>1. 管理: 后台可配置图片、跳转链接（支持页面、文章、活动）。<br>2. 交互: 自动播放、手动滑动。<br>3. 规则: 可设置排序、定时上下架。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>智能弹窗</td>
+            <td>P0</td>
+            <td>1. 触发: 用户每次进入小程序时弹出。<br>2. 内容: 推广当前最热门的活动（如演唱会、好声音海选）。<br>3. 地域化: 根据用户IP地址自动推荐当地的活动。<br>4. 关闭: 用户可手动关闭。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>演唱会</td>
+            <td>P0</td>
+            <td>功能入口。点击跳转至演唱会列表页。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>好声音</td>
+            <td>P0</td>
+            <td>功能入口。点击跳转至好声音赛事主页面。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>歌手/演员</td>
+            <td>P1</td>
+            <td>功能入口。点击跳转至艺人列表页。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>导演/编剧</td>
+            <td>P1</td>
+            <td>功能入口。点击跳转至资源信息页，聚合【演员招募】、【剧组通告】、【导演作品】、【电影项目】、【编剧剧本】等功能。<strong>该板块大部分内容需开通会员后方可查看详情或报名</strong>。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>星际社区</td>
+            <td>P0</td>
+            <td>功能入口。点击跳转至社区"动态广场"主页面。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>会员VIP</td>
+            <td>P0</td>
+            <td>功能入口。点击跳转至"会员中心"开通页，突出展示会员权益。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>战略伙伴</td>
+            <td>P1</td>
+            <td>功能入口。点击跳转至战略合作伙伴列表页。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>商家企业</td>
+            <td>P1</td>
+            <td>功能入口。点击跳转至商家列表或商城页面。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>资讯滚动</td>
+            <td>P1</td>
+            <td>1. 表现形式: 在首页顶部或底部以滚动条形式出现。<br>2. 内容: 展示系统通知、热门资讯、中奖信息等。<br>3. 交互: 点击后可跳转至详情页。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>地域化推荐</td>
+            <td>P1</td>
+            <td>1. 逻辑: 首页部分内容（如演唱会、活动）应根据用户实时定位或IP地址优先展示本地内容。<br>2. 后台: 支持按地区配置活动与内容的显示优先级。</td>
+        </tr>
+    </table>
+
+    <h4>3.1.2 演唱会模块</h4>
+    <table>
+        <tr>
+            <th>子功能模块</th>
+            <th>优先级</th>
+            <th>详细需求说明</th>
+        </tr>
+        <tr class="priority-p0">
+            <td>列表页</td>
+            <td>P0</td>
+            <td>1. 展示: 以城市（如深圳站、南宁站）为维度展示演唱会列表，包含海报、名称、时间、地点。<br>2. 筛选: 支持按城市、日期筛选。<br>3. 排序: 支持按热度、时间排序。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>详情页</td>
+            <td>P0</td>
+            <td>1. 展示: 演唱会详情、歌手介绍、场馆座位图。<br>2. 选座购票: 接入选座功能或选择票档（如VIP票、看台票、学生票）。<br>3. 实名认证: 购票需强制实名认证，一票一证。<br>4. 分享佣金: 明显位置提示"分享赚佣金"按钮，引导用户分享。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>购票流程</td>
+            <td>P0</td>
+            <td>1. 非会员提示: 非会员在支付前弹窗，提示开通会员可立减XX元并享受分佣权益。会员价与原价差约50-60元。<br>2. 支付: 调用微信支付/支付宝。<br>3. 票券生成: 支付成功后生成带二维码的电子票，存入"我的票夹"。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>分享机制</td>
+            <td>P0</td>
+            <td>1. 规则: 会员分享演唱会链接，他人通过此链接购票，分享者可获得佣金（例如票价的5%）。<br>2. 限制: 为防止刷单，需严格验证同一设备、IP、支付账号的购买行为。</td>
+        </tr>
+    </table>
+
+    <h4>3.1.3 好声音赛事模块</h4>
+    <table>
+        <tr>
+            <th>子功能模块</th>
+            <th>优先级</th>
+            <th>详细需求说明</th>
+        </tr>
+        <tr class="priority-p0">
+            <td>赛事主页</td>
+            <td>P0</td>
+            <td>展示赛事轮播图、赛制说明、评委介绍、热门选手。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>选手列表</td>
+            <td>P0</td>
+            <td>1. 展示: 选手头像、姓名、编号、票数。<br>2. 排序: 按票数或热度排序。<br>3. 搜索: 可按编号、姓名搜索选手。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>投票机制</td>
+            <td>P0</td>
+            <td>1. 免费投票: 每个用户每天可免费投1票（需验证账号）。<br>2. 付费投票: 用户可充值购买票数（如100元购买1000票），为选手加油。后台可配置充值档位与票数换算比例。<br>3. 限制: 为防止过度消费，可设置每日付费投票上限。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>报名流程</td>
+            <td>P0</td>
+            <td>1. 付费门槛: 点击报名后，首先弹出"报名须知"弹窗，明确告知需支付<strong>活动经费</strong>（如198元），<strong>支付成功后不予退款</strong>，并需同意肖像权协议。<br>2. 支付后填表: 用户支付成功后，才跳转至详细的报名信息表单页面进行填写。<br>3. 信息审核: 提交后进入后台审核流程。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>地区分赛区</td>
+            <td>P1</td>
+            <td>1. 展示: 首页应展示全国各地分赛区的活动视频剪辑或宣传图。<br>2. 发布: 分赛区内容由战略合作伙伴（地方娱乐公司）在后台上传发布。</td>
+        </tr>
+    </table>
+
+    <h4>3.1.4 社区模块</h4>
+    <table>
+        <tr>
+            <th>子功能模块</th>
+            <th>优先级</th>
+            <th>详细需求说明</th>
+        </tr>
+        <tr class="priority-p1">
+            <td>关注</td>
+            <td>P1</td>
+            <td>信息流页，展示用户已关注的创作者发布的动态。</td>
+        </tr>
+        <tr class="priority-p2">
+            <td>直播</td>
+            <td>P2</td>
+            <td>1. 开播: 用户需实名认证并申请直播权限（后台审核）。<br>2. 互动: 支持弹幕、虚拟礼物、连麦PK。<br>3. 收益: 礼物收入计入"可提现余额"。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>发现(动态广场)</td>
+            <td>P1</td>
+            <td>1. 发布: 支持图文（最多9张）、短视频（≤60s），可带话题。<br>2. 审核: 所有用户发布内容<strong>先审后发</strong>。<br>3. 互动: 支持点赞、评论、转发、举报。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>搜索</td>
+            <td>P1</td>
+            <td>社区内的全局搜索入口，可搜索用户、动态、话题等。</td>
+        </tr>
+    </table>
+
+    <h4>3.1.5 会员中心</h4>
+    <table>
+        <tr>
+            <th>子功能模块</th>
+            <th>优先级</th>
+            <th>详细需求说明</th>
+        </tr>
+        <tr class="priority-p0">
+            <td>会员分类与权益</td>
+            <td>P0</td>
+            <td>清晰陈列多种会员类型（如：普通会员、歌手VIP、演员VIP、导演VIP、商家VIP、战略合作伙伴），展示价格、核心权益摘要及详细说明。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>开通与支付</td>
+            <td>P0</td>
+            <td>1. 支付: 唤起支付（微信/支付宝）。<br>2. 成功: 即时开通权益，并<strong>实时触发分佣计算</strong>，佣金打入上级用户钱包。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>到期提醒</td>
+            <td>P1</td>
+            <td>到期前3天、1天通过【消息中心】推送模板消息提醒。</td>
+        </tr>
+    </table>
+
+    <h4>3.1.6 我的（个人中心）</h4>
+    <table>
+        <tr>
+            <th>子功能模块</th>
+            <th>优先级</th>
+            <th>详细需求说明</th>
+        </tr>
+        <tr class="priority-p0">
+            <td>我的推广/钱包</td>
+            <td>P0</td>
+            <td>1. 收益总览: 显示可提现余额、累计收益、待结算收益。<br>2. 明细查询: 展示所有分佣收入明细（来源、金额、时间）。<br>3. 提现申请: 支持用户发起提现申请，后台审核后打款。<br>4. 推广数据: 推广员可查看自己的推广商家列表、数量、达标情况（是否满30家以获得底薪）。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>我的报名</td>
+            <td>P1</td>
+            <td>集中展示用户所有活动的报名记录（好声音、演员、评委等）及审核状态（待审核/通过/驳回）。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>票夹</td>
+            <td>P0</td>
+            <td>1. 功能: 集中管理电子票订单（如演唱会票）。<br>2. 状态: 包含待使用、已使用、已过期等状态。<br>3. 凭证: 点击电子票可查看二维码详情用于核验。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>基本信息</td>
+            <td>P0</td>
+            <td>显示头像、昵称、ID等基础信息。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>我的收藏</td>
+            <td>P1</td>
+            <td>用户收藏的动态、视频、直播、商品等内容集合。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>关注企业联盟</td>
+            <td>P1</td>
+            <td>用户关注的商家、传媒公司等企业列表。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>浏览记录</td>
+            <td>P1</td>
+            <td>用户浏览过的动态、新闻、商品等历史记录。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>优惠券</td>
+            <td>P1</td>
+            <td>查看用户领取的各类优惠券及其状态（未使用/已使用/已过期）。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>开通会员</td>
+            <td>P0</td>
+            <td>入口，点击跳转至会员中心开通页。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>我的订单</td>
+            <td>P0</td>
+            <td><strong>所有订单的集合中心</strong>，状态包括：待支付、已支付、已取消、已退款、已完成。支持查看详情、申请退款、申请发票。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>发票管理</td>
+            <td>P1</td>
+            <td>用户提交的发票申请记录及开票状态管理。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>关注店铺</td>
+            <td>P1</td>
+            <td>用户关注的商家店铺列表。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>问题反馈</td>
+            <td>P1</td>
+            <td>用户提交意见反馈的入口。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>企业加盟</td>
+            <td>P1</td>
+            <td>企业用户申请入驻平台的入口。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>地址管理</td>
+            <td>P1</td>
+            <td>管理用户的收货地址，用于邮寄实体商品。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>个人资料</td>
+            <td>P0</td>
+            <td>编辑个人信息，包括头像、昵称、实名认证、简介等。</td>
+        </tr>
+        <tr class="priority-p2">
+            <td>积分签到</td>
+            <td>P2</td>
+            <td>通过每日签到获取积分，积分可用于兑换优惠券或参与抽奖（积分规则需后台配置）。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>消息中心</td>
+            <td>P1</td>
+            <td>接收系统通知（审核结果、订单、提现到账）、互动消息（点赞、评论、@我的）。</td>
+        </tr>
+        <tr class="priority-p2">
+            <td>相关文章</td>
+            <td>P2</td>
+            <td>可能指用户读过的或系统推荐的文章列表。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>社交主页</td>
+            <td>P1</td>
+            <td>展示用户个人的公开主页，包含其发布的动态、作品等信息。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>商家管理</td>
+            <td>P1</td>
+            <td><strong>针对商家VIP用户</strong>，提供管理自家店铺、商品、订单的后台功能入口。</td>
+        </tr>
+    </table>
+
+    <h3>3.2 后台管理系统功能</h3>
+
+    <h4>3.2.1 分佣与财务管理</h4>
+    <table>
+        <tr>
+            <th>功能</th>
+            <th>优先级</th>
+            <th>详细需求说明</th>
+        </tr>
+        <tr class="priority-p0">
+            <td>分佣规则配置</td>
+            <td>P0</td>
+            <td>可针对<strong>每一种商品和服务</strong>（不同会员、不同票务、商家入驻费）独立设置一级和二级分佣比例。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>提现审核</td>
+            <td>P0</td>
+            <td>1. 列表: 展示所有提现申请（申请人、金额、时间、状态）。<br>2. 操作: 审核通过（触发打款）、驳回（需填写理由，金额退回用户余额）。<br>3. 导出: 支持导出记录用于财务对账。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>分佣明细查询</td>
+            <td>P0</td>
+            <td>可查询所有分佣记录，支持按时间、用户、订单号筛选和导出。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>推广员管理</td>
+            <td>P1</td>
+            <td>1. 列表: 查看所有推广员信息、推广数据（成功商家数、累计收益）。<br>2. 底薪结算: 每月初统计上月达标（推广30家）的推广员，人工或半自动发放底薪。</td>
+        </tr>
+    </table>
+
+    <h4>3.2.2 票务与活动管理</h4>
+    <table>
+        <tr>
+            <th>功能</th>
+            <th>优先级</th>
+            <th>详细需求说明</th>
+        </tr>
+        <tr class="priority-p0">
+            <td>票务管理</td>
+            <td>P0</td>
+            <td>1. 活动创建: 可创建演唱会、赛事等活动，设置名称、时间、地点、海报。<br>2. 票档管理: 为活动添加多种票种（如VIP、看台），并设置每个票种的<strong>结算价</strong>、<strong>售价</strong>、<strong>库存</strong>。<br>3. 合作伙伴结算: 针对战略合作伙伴发布的活动，后台可查看销量并基于结算价进行财务结算。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>战略合作伙伴管理</td>
+            <td>P0</td>
+            <td>1. 入驻审核: 审核企业提交的资质（营业执照、文化演出许可等）。<br>2. 后台分配: 为合作伙伴分配独立的管理后台账号，<strong>权限可控</strong>（可管理自有活动、查看自有活动报名数据）。<br>3. 内容审核: 合作伙伴发布的活动、视频、招募信息需平台最终审核通过后才对外展示。</td>
+        </tr>
+        <tr class="priority-p0">
+            <td>报名管理</td>
+            <td>P0</td>
+            <td>1. 全局查看: 可查看所有活动的报名记录，支持按活动、地区、状态筛选。<br>2. 导出数据: 可导出报名人员完整名单（Excel），用于活动执行。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>投票管理</td>
+            <td>P1</td>
+            <td>后台可监控投票数据，防范刷票，并能对付费投票的订单进行查询。</td>
+        </tr>
+    </table>
+
+    <h4>3.2.3 用户与权限管理</h4>
+    <table>
+        <tr>
+            <th>功能</th>
+            <th>优先级</th>
+            <th>详细需求说明</th>
+        </tr>
+        <tr class="priority-p0">
+            <td>用户管理</td>
+            <td>P0</td>
+            <td>查看C端用户列表，支持查询用户详情（<strong>关系链图谱</strong>、消费记录、收益情况）。<strong>新增商家列表</strong>，可查看所有入驻商家的详细信息。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>RBAC权限控制</td>
+            <td>P1</td>
+            <td>1. 角色: 超级管理员、内容运营、财务人员、客服、<strong>合作伙伴管理员</strong>。<br>2. 权限: 为不同角色分配不同的功能模块操作权限。例如合作伙伴管理员只能管理自己公司的活动和数据。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>操作日志</td>
+            <td>P1</td>
+            <td>记录所有后台账号的登录与操作记录。</td>
+        </tr>
+    </table>
+
+    <h4>3.2.4 内容与审核管理</h4>
+    <table>
+        <tr>
+            <th>功能</th>
+            <th>优先级</th>
+            <th>详细需求说明</th>
+        </tr>
+        <tr class="priority-p0">
+            <td>好声音赛事管理</td>
+            <td>P0</td>
+            <td>发布赛程、管理评委、<strong>审核选手报名</strong>、管理选手资料、监控投票数据。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>UGC内容审核</td>
+            <td>P1</td>
+            <td>统一后台审核用户发布的动态、直播、评论，处理举报内容。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>资源信息发布</td>
+            <td>P1</td>
+            <td>发布和管理【剧组招募】、【演员招募】、【项目对接】等信息。</td>
+        </tr>
+        <tr class="priority-p1">
+            <td>Banner管理</td>
+            <td>P1</td>
+            <td>配置小程序首页轮播图及其跳转链接。</td>
+        </tr>
+    </table>
+
+    <h4>3.2.5 数据统计</h4>
+    <table>
+        <tr>
+            <th>功能</th>
+            <th>优先级</th>
+            <th>详细需求说明</th>
+        </tr>
+        <tr class="priority-p1">
+            <td>数据看板</td>
+            <td>P1</td>
+            <td>可视化展示核心数据：注册用户数、付费用户数、订单总额、佣金支出、活动PV/UV等。支持导出。</td>
+        </tr>
+    </table>
+
+    <h2>4. 非功能性需求</h2>
+    <ul>
+        <li><strong>性能:</strong> 首页及核心页面加载时间低于2秒，票务抢购场景下系统稳定。</li>
+        <li><strong>安全:</strong> 用户数据加密，接口防刷（投票、抢票、注册、分佣），支付密码校验，后台操作日志完备。加强对实名认证信息的管理。</li>
+        <li><strong>兼容性:</strong> 支持主流iOS和Android机型上的微信小程序平台。</li>
+        <li><strong>可扩展性:</strong> 系统设计需考虑未来接入更多第三方票务平台、支付渠道的可能性。</li>
+    </ul>
+
+    <h2>5. 项目规划与里程碑</h2>
+
+    <h3>5.1 版本发布计划 (修订)</h3>
+    <ul>
+        <li><strong>V1.0 (MVP版本):</strong>
+            <ul>
+                <li><strong>核心功能:</strong> 会员体系（支付+分佣）、演唱会票务（创建、购票、实名、分佣）、好声音赛事（付费报名、投票）、基础后台（审核、配置、分佣管理）。</li>
+                <li><strong>目标:</strong> 跑通"票务-会员-分佣"这个最核心的商业闭环。</li>
+            </ul>
+        </li>
+        <li><strong>V1.1 (B端拓展版):</strong>
+            <ul>
+                <li><strong>新增功能:</strong> 战略合作伙伴独立后台、商家会员入驻与推广系统、导演编剧VIP及其发布功能。</li>
+                <li><strong>优化:</strong> 增强后台管理能力，支持多地活动运营。</li>
+            </ul>
+        </li>
+        <li><strong>V1.2 (内容生态版):</strong>
+            <ul>
+                <li><strong>新增功能:</strong> 直播功能、社区电商、更丰富的UGC内容互动。</li>
+                <li><strong>优化:</strong> 性能与体验优化，数据统计分析工具。</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>5.2 优先级定义</h3>
+    <ul>
+        <li><strong>P0:</strong> 必须上线，否则MVP无法运行（如票务、会员、分佣、支付）。</li>
+        <li><strong>P1:</strong> 重要功能，对核心业务有重大补充或能快速验证B端需求（如合作伙伴后台、商家推广、付费投票）。</li>
+        <li><strong>P2:</strong> 锦上添花的功能，或需要验证需求的功能（如直播、复杂电商），可后续迭代。</li>
+    </ul>
+ </body>
+</html>
